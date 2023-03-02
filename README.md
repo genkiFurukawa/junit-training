@@ -9,3 +9,4 @@
 - (optional)GitHub Actions でテストの自動実行と実行結果が見れるようにする
 
 ## 参考
+- [assertSame](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html#assertSame-java.lang.Object-java.lang.Object-)はオブジェクトの比較なので、文字列を比較するときはassertEqualsを使う

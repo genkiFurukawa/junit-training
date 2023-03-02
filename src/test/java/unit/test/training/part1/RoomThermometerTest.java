@@ -14,25 +14,25 @@ class RoomThermometerTest {
         @Test
         void 室温が23_9度の時に寒いと表示されること() {
             var roomThermometer = new RoomThermometer((float) 23.9);
-            assertSame("寒い", roomThermometer.getDisplayMessage());
+            assertEquals("寒い", roomThermometer.getDisplayMessage());
         }
 
         @Test
         void 室温が24_0度の時に快適と表示されること() {
             var roomThermometer = new RoomThermometer((float) 24.0);
-            assertSame("快適", roomThermometer.getDisplayMessage());
+            assertEquals("快適", roomThermometer.getDisplayMessage());
         }
 
         @Test
         void 室温が25_9度の時に快適と表示されること() {
             var roomThermometer = new RoomThermometer((float) 25.9);
-            assertSame("快適", roomThermometer.getDisplayMessage());
+            assertEquals("快適", roomThermometer.getDisplayMessage());
         }
 
         @Test
         void 室温が26_0度の時に快適と表示されること() {
             var roomThermometer = new RoomThermometer((float) 26.0);
-            assertSame("暑い", roomThermometer.getDisplayMessage());
+            assertEquals("暑い", roomThermometer.getDisplayMessage());
         }
     }
 
@@ -42,19 +42,19 @@ class RoomThermometerTest {
         @Test
         void 室温が23_0度の時に寒いと表示されること() {
             var roomThermometer = new RoomThermometer((float) 23.0);
-            assertSame("寒い", roomThermometer.getDisplayMessage());
+            assertEquals("寒い", roomThermometer.getDisplayMessage());
         }
 
         @Test
         void 室温が25_0度の時に快適と表示されること() {
             var roomThermometer = new RoomThermometer((float) 25.0);
-            assertSame("快適", roomThermometer.getDisplayMessage());
+            assertEquals("快適", roomThermometer.getDisplayMessage());
         }
 
         @Test
         void 室温が27_0度の時に暑いと表示されること() {
             var roomThermometer = new RoomThermometer((float) 27.0);
-            assertSame("暑い", roomThermometer.getDisplayMessage());
+            assertEquals("暑い", roomThermometer.getDisplayMessage());
         }
     }
 }

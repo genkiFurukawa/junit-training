@@ -19,6 +19,6 @@ jobs:
       # https://github.com/marketplace/actions/junit-report-action
       - name: publish test report
         uses: mikepenz/action-junit-report@v3
-        if: success() || failure() # always run even if the previous step fails
+        if: always()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'

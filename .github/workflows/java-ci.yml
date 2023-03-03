@@ -1,0 +1,24 @@
+name: Java CI
+run-name: 🚀 Java CI 🚀
+on: [push]
+jobs:
+  unit-test:
+    runs-on: ubuntu-20.04
+    steps:
+      # https://github.com/actions/setup-java
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+      - name: run unit test
+        run: ./gradlew test
+      # テストレポートを出力する
+      # https://github.com/marketplace/actions/junit-report-action
+      - name: publish test report
+        uses: mikepenz/action-junit-report@v3
+        if: always()
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'

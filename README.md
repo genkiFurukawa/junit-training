@@ -1,4 +1,7 @@
 # ユニットテストの練習リポジトリ（JUnit）
+
+[![Java CI](https://github.com/genkiFurukawa/junit-training/actions/workflows/java-ci.yml/badge.svg)](https://github.com/genkiFurukawa/junit-training/actions/workflows/java-ci.yml)
+
 ## 背景
 - 仕事でテストを書く文化がなく、テストを書かない => テストコードを書くスキルがつかない のループを繰り返している
 - スキルを身につけるための勉強用のリポジトリ

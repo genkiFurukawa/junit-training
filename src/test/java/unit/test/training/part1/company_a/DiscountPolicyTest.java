@@ -26,6 +26,8 @@ class DiscountPolicyTest {
             return Stream.of(
                     arguments(20, 1),
                     arguments(20, 5),
+                    arguments(0, 6),
+                    arguments(0, 27),
                     arguments(20, 28),
                     arguments(20, 30),
                     arguments(0, 31)
@@ -45,6 +47,7 @@ class DiscountPolicyTest {
         static Stream<Arguments> 期待値と日付の組() {
             return Stream.of(
                     arguments(20, 3),
+                    arguments(0, 10),
                     arguments(20, 29),
                     arguments(0, 31)
             );

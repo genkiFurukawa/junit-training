@@ -10,8 +10,8 @@ public class Customer {
      * @return 購入に成功したかどうか
      */
     public boolean purchase(Store store, Product product, int quantity) {
-        if (store.checkInventory(product, quantity)) {
-            store.purchaseInventory(product, quantity);
+        if (store.hasEnoughInventory(product, quantity)) {
+            store.removeInventory(product, quantity);
             return true;
         }
 

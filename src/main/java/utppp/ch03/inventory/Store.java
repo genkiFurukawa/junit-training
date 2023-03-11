@@ -48,7 +48,7 @@ public class Store {
      * @param quantity 購入したい個数
      * @return 在庫が購入したい個数以上かどうか
      */
-    public boolean checkInventory(Product product, int quantity) {
+    public boolean hasEnoughInventory(Product product, int quantity) {
         if (inventory.containsKey(product)) {
             return inventory.get(product) >= quantity;
         }
@@ -62,7 +62,7 @@ public class Store {
      * @param product  product
      * @param quantity quantity
      */
-    public void purchaseInventory(Product product, int quantity) {
+    public void removeInventory(Product product, int quantity) {
         if (inventory.containsKey(product) || inventory.get(product) >= quantity) {
             var nowQuantity = inventory.get(product);
             var newQuantity = nowQuantity - quantity;

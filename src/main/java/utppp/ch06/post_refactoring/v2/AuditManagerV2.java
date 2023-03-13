@@ -1,2 +1,4 @@
-package utppp.ch06.post_refactoring;public class AuditManagerV2 {
+package utppp.ch06.post_refactoring.v2;
+
+public class AuditManagerV2 {
 }

@@ -1,4 +1,4 @@
-package utppp.ch06.post_refactoring;
+package utppp.ch06.post_refactoring.v2;
 
 public class FileUpdate {
     private final String fileName;

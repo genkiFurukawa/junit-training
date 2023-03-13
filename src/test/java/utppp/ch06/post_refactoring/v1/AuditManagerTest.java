@@ -1,4 +1,4 @@
-package utppp.ch06.post_refactoring;
+package utppp.ch06.post_refactoring.v1;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AuditManagerTest {
     @Test

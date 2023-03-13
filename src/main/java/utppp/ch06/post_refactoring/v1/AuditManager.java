@@ -1,4 +1,4 @@
-package utppp.ch06.post_refactoring;
+package utppp.ch06.post_refactoring.v1;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

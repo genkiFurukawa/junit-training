@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class User {
-    private final int userId;
-    private final String email;
-    private final UserType type;
+    private int userId;
+    private String email;
+    private UserType type;
 
     /**
      * メールアドレスを変更する
@@ -17,6 +17,24 @@ public class User {
      * @return 従業員数
      */
     public int changeEmail(String newEmail, String companyDomainName, int numberOfEmployees) {
-        return 0;
+        if (email.equals(newEmail)) {
+            return numberOfEmployees;
+        }
+
+        var emailDomain = newEmail.split("@")[1];
+        var isEmailCorporate = emailDomain.equals(companyDomainName);
+
+        var newType = isEmailCorporate ? UserType.EMPLOYEE : UserType.CUSTOMER;
+
+        if (!type.equals(newType)) {
+            var delta = newType.equals(UserType.EMPLOYEE) ? 1 : -1;
+            var newNumber = numberOfEmployees + delta;
+            numberOfEmployees = newNumber;
+        }
+
+        this.email = newEmail;
+        this.type = newType;
+
+        return numberOfEmployees;
     }
 }

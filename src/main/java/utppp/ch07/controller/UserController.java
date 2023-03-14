@@ -1,6 +1,7 @@
 package utppp.ch07.controller;
 
 import lombok.AllArgsConstructor;
+import utppp.ch07.domain.CompanyFactory;
 import utppp.ch07.domain.UserFactory;
 
 @AllArgsConstructor
@@ -19,11 +20,11 @@ public class UserController {
         var user = UserFactory.create(data);
 
         var companyData = database.getCompany();
-        var companyDomainName = (String) companyData[0];
-        int numberOfEmployees = (int) companyData[1];
+        var company = CompanyFactory.create(companyData);
 
-        var newNumberOfEmployees = user.changeEmail(newEmail, companyDomainName, numberOfEmployees);
-        database.saveCompany(newNumberOfEmployees);
+        user.changeEmail(newEmail, company);
+
+        database.saveCompany(company);
         database.saveUser(user);
         messageBus.sendEmailChangedMessage(userId, newEmail);
     }

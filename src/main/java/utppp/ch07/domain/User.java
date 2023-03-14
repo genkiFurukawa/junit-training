@@ -11,30 +11,23 @@ public class User {
     /**
      * メールアドレスを変更する
      *
-     * @param newEmail          newEmail
-     * @param companyDomainName companyDomainName
-     * @param numberOfEmployees numberOfEmployees
+     * @param newEmail newEmail
+     * @param company  company
      * @return 従業員数
      */
-    public int changeEmail(String newEmail, String companyDomainName, int numberOfEmployees) {
+    public void changeEmail(String newEmail, Company company) {
         if (email.equals(newEmail)) {
-            return numberOfEmployees;
+            return;
         }
 
-        var emailDomain = newEmail.split("@")[1];
-        var isEmailCorporate = emailDomain.equals(companyDomainName);
-
-        var newType = isEmailCorporate ? UserType.EMPLOYEE : UserType.CUSTOMER;
+        var newType = company.isEmailCorporate(newEmail) ? UserType.EMPLOYEE : UserType.CUSTOMER;
 
         if (!type.equals(newType)) {
             var delta = newType.equals(UserType.EMPLOYEE) ? 1 : -1;
-            var newNumber = numberOfEmployees + delta;
-            numberOfEmployees = newNumber;
+            company.changeNumberOfEmployees(delta);
         }
 
         this.email = newEmail;
         this.type = newType;
-
-        return numberOfEmployees;
     }
 }

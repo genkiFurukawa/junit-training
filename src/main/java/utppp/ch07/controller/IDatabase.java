@@ -1,5 +1,6 @@
 package utppp.ch07.controller;
 
+import utppp.ch07.domain.Company;
 import utppp.ch07.domain.User;
 
 public interface IDatabase {
@@ -26,9 +27,9 @@ public interface IDatabase {
     void saveUser(User user);
 
     /**
-     * 会社の従業員数を更新する
+     * 会社の情報を更新する
      *
-     * @param numberOfEmployees 従業員数
+     * @param company company
      */
-    void saveCompany(int numberOfEmployees);
+    void saveCompany(Company company);
 }

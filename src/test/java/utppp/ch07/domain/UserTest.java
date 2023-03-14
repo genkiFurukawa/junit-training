@@ -17,6 +17,8 @@ class UserTest {
         assertEquals(2, company.getNumberOfEmployees());
         assertEquals("new@my-corp.com", sut.getEmail());
         assertEquals(UserType.EMPLOYEE, sut.getType());
+        assertEquals(1, sut.getEmailChangedEvents().size());
+        assertEquals(true, sut.getEmailChangedEvents().contains(new EmailChangedEvent(1, "new@my-corp.com")));
     }
 
     @Test
@@ -30,6 +32,7 @@ class UserTest {
         assertEquals(0, company.getNumberOfEmployees());
         assertEquals("user@gmail.com", sut.getEmail());
         assertEquals(UserType.CUSTOMER, sut.getType());
+        assertEquals(true, sut.getEmailChangedEvents().contains(new EmailChangedEvent(1, "user@gmail.com")));
     }
 
     @Test
@@ -43,6 +46,7 @@ class UserTest {
         assertEquals(1, company.getNumberOfEmployees());
         assertEquals("new@my-corp.com", sut.getEmail());
         assertEquals(UserType.EMPLOYEE, sut.getType());
+        assertEquals(true, sut.getEmailChangedEvents().contains(new EmailChangedEvent(1, "new@my-corp.com")));
     }
 
     @Test
@@ -56,5 +60,6 @@ class UserTest {
         assertEquals(1, company.getNumberOfEmployees());
         assertEquals("user@gmail.com", sut.getEmail());
         assertEquals(UserType.CUSTOMER, sut.getType());
+        assertEquals(0, sut.getEmailChangedEvents().size());
     }
 }

@@ -1,14 +1,23 @@
 package utppp.ch07.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 public class User {
     private int userId;
     private String email;
     private UserType type;
+    private List<EmailChangedEvent> emailChangedEvents;
+
+    public User(int userId, String email, UserType type) {
+        this.userId = userId;
+        this.email = email;
+        this.type = type;
+        this.emailChangedEvents = new ArrayList<>();
+    }
 
     /**
      * メールアドレスを変更する
@@ -31,5 +40,6 @@ public class User {
 
         this.email = newEmail;
         this.type = newType;
+        emailChangedEvents.add(new EmailChangedEvent(userId, newEmail));
     }
 }

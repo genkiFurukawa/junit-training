@@ -26,6 +26,8 @@ public class UserController {
 
         database.saveCompany(company);
         database.saveUser(user);
-        messageBus.sendEmailChangedMessage(userId, newEmail);
+        for (var ev : user.getEmailChangedEvents()) {
+            messageBus.sendEmailChangedMessage(ev.getUserId(), ev.getNewEmail());
+        }
     }
 }

@@ -10,13 +10,22 @@ public class User {
     private int userId;
     private String email;
     private UserType type;
+    private boolean isEmailConfirmed;
     private List<EmailChangedEvent> emailChangedEvents;
 
-    public User(int userId, String email, UserType type) {
+    public User(int userId, String email, UserType type, boolean isEmailConfirmed) {
         this.userId = userId;
         this.email = email;
         this.type = type;
+        this.isEmailConfirmed = isEmailConfirmed;
         this.emailChangedEvents = new ArrayList<>();
+    }
+
+    public String canChangeEmail() {
+        if (isEmailConfirmed) {
+            return "Cannot change a confirmed email";
+        }
+        return null;
     }
 
     /**

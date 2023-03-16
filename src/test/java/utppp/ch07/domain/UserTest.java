@@ -10,7 +10,7 @@ class UserTest {
     @DisplayName("メールアドレスを非従業員のものから従業員のものに変更する")
     void changing_email_from_non_corporate_to_corporate() {
         var company = new Company("my-corp.com", 1);
-        var sut = new User(1, "user@gmail.com", UserType.CUSTOMER);
+        var sut = new User(1, "user@gmail.com", UserType.CUSTOMER, false);
 
         sut.changeEmail("new@my-corp.com", company);
 
@@ -25,7 +25,7 @@ class UserTest {
     @DisplayName("メールアドレスを従業員のものから非従業員のものに変更する")
     void changing_email_from_corporate_to_non_corporate() {
         var company = new Company("my-corp.com", 1);
-        var sut = new User(1, "user@my-corp.com", UserType.EMPLOYEE);
+        var sut = new User(1, "user@my-corp.com", UserType.EMPLOYEE, false);
 
         sut.changeEmail("user@gmail.com", company);
 
@@ -39,7 +39,7 @@ class UserTest {
     @DisplayName("ユーザの種別を変えずにメールアドレスを変更する")
     void changing_email_without_changing_user_type() {
         var company = new Company("my-corp.com", 1);
-        var sut = new User(1, "user@gmail.com", UserType.EMPLOYEE);
+        var sut = new User(1, "user@gmail.com", UserType.EMPLOYEE, false);
 
         sut.changeEmail("new@my-corp.com", company);
 
@@ -53,7 +53,7 @@ class UserTest {
     @DisplayName("メールアドレスを同じメールアドレスに変更する")
     void changing_email_to_the_same_one() {
         var company = new Company("my-corp.com", 1);
-        var sut = new User(1, "user@gmail.com", UserType.CUSTOMER);
+        var sut = new User(1, "user@gmail.com", UserType.CUSTOMER, false);
 
         sut.changeEmail("user@gmail.com", company);
 

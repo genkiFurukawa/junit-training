@@ -15,9 +15,14 @@ public class UserController {
      * @param userId   userId
      * @param newEmail newEmail
      */
-    public void changEmail(int userId, String newEmail) {
+    public String changEmail(int userId, String newEmail) {
         var data = database.getUserById(userId);
         var user = UserFactory.create(data);
+
+        var error = user.canChangeEmail();
+        if (error != null) {
+            return "error";
+        }
 
         var companyData = database.getCompany();
         var company = CompanyFactory.create(companyData);
@@ -29,5 +34,6 @@ public class UserController {
         for (var ev : user.getEmailChangedEvents()) {
             messageBus.sendEmailChangedMessage(ev.getUserId(), ev.getNewEmail());
         }
+        return "OK";
     }
 }
